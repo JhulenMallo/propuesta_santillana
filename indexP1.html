@@ -1,0 +1,1802 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santillana Bolivia</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+        <style>
+        :root {
+            --primary-color: #e74c3c;
+            --secondary-color: #2980b9;
+            --accent-color: #f39c12;
+            --success-color: #27ae60;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --bolivia-red: #d52b1e;
+            --bolivia-yellow: #ffd700;
+            --bolivia-green: #007a33;
+            --bg-light: #f8f9fa;
+            --santillana-red: #e74c3c;
+            --light-gray: #f8f9fa;
+            --dark-text: #2c3e50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.4;
+            color: var(--dark-text);
+            font-size: 14px;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding: 8px 0;
+        }
+
+        .navbar-brand {
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: var(--santillana-red) !important;
+        }
+
+        .nav-link {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--dark-text) !important;
+            padding: 8px 16px !important;
+        }
+
+        .hero-section {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-blur-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="books" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse"><rect width="200" height="200" fill="%23f8f9fa" opacity="0.1"/><rect x="20" y="50" width="15" height="100" fill="%23e74c3c" opacity="0.3"/><rect x="40" y="60" width="15" height="90" fill="%233498db" opacity="0.3"/><rect x="60" y="45" width="15" height="105" fill="%2327ae60" opacity="0.3"/><rect x="80" y="55" width="15" height="95" fill="%23f39c12" opacity="0.3"/></pattern></defs><rect width="100%" height="100%" fill="url(%23books)"/></svg>') center/cover;
+            filter: blur(3px);
+            opacity: 0.4;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-book {
+            position: absolute;
+            right: 10%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 300px;
+            height: 400px;
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+            border-radius: 20px 5px 5px 20px;
+            box-shadow: 
+                -10px 10px 30px rgba(0,0,0,0.3),
+                inset 5px 0 10px rgba(0,0,0,0.1);
+            z-index: 3;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-book::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            right: 30px;
+            height: 60px;
+            background: var(--santillana-red);
+            border-radius: 8px;
+        }
+
+        .hero-book::after {
+            content: 'MATEMÁTICAS\A PRIMARIA';
+            white-space: pre;
+            position: absolute;
+            top: 110px;
+            left: 30px;
+            right: 30px;
+            color: var(--dark-text);
+            font-size: 16px;
+            font-weight: 600;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        .hero-title {
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 16px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 32px;
+            font-weight: 400;
+        }
+
+        .btn-minimal {
+            background: white;
+            color: var(--dark-text);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-minimal:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            color: var(--dark-text);
+        }
+
+        .section-padding {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 48px;
+            color: var(--dark-text);
+            text-align: center;
+        }
+
+        .minimal-card {
+            background: white;
+            border: 1px solid rgba(0,0,0,0.05);
+            border-radius: 12px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .minimal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--santillana-red);
+            margin-bottom: 16px;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--dark-text);
+        }
+
+        .card-text {
+            font-size: 13px;
+            color: #6c757d;
+            line-height: 1.4;
+        }
+
+        .stats-grid {
+            background: var(--light-gray);
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 32px 16px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--santillana-red);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: #6c757d;
+            font-weight: 500;
+        }
+
+        .carousel-minimal {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .carousel-item {
+            height: 400px;
+        }
+
+        .carousel-content {
+            height: 100%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+        }
+
+        .carousel-icon {
+            font-size: 4rem;
+            margin-bottom: 16px;
+        }
+
+        .carousel-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .carousel-desc {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .contact-section {
+            background: var(--light-gray);
+        }
+
+        .contact-card {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .subject-card {
+            background: white;
+            border: 2px solid transparent;
+            border-radius: 12px;
+            padding: 24px 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .subject-card:hover {
+            border-color: var(--santillana-red);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.15);
+        }
+
+        .subject-card.active {
+            background: var(--santillana-red);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.3);
+        }
+
+        .subject-card i {
+            font-size: 2rem;
+            color: var(--santillana-red);
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .subject-card.active i {
+            color: white;
+        }
+
+        .subject-card h6 {
+            font-size: 14px;
+            font-weight: 600;
+            margin: 0;
+            color: var(--dark-text);
+            transition: color 0.3s ease;
+        }
+
+        .subject-card.active h6 {
+            color: white;
+        }
+
+        .contact-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 32px;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .contact-tab {
+            background: none;
+            border: none;
+            padding: 12px 24px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #6c757d;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+            margin: 0 8px;
+        }
+
+        .contact-tab.active {
+            color: var(--santillana-red);
+            border-bottom-color: var(--santillana-red);
+        }
+
+        .contact-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .contact-content.active {
+            display: block;
+        }
+
+        .accordion {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .accordion-item {
+            border: none;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+
+        .accordion-button {
+            background: white;
+            color: var(--dark-text);
+            font-weight: 600;
+            font-size: 14px;
+            padding: 16px 20px;
+            border: none;
+            box-shadow: none;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background: var(--light-gray);
+            color: var(--santillana-red);
+            box-shadow: none;
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+            border: none;
+        }
+
+        .accordion-body {
+            padding: 16px 20px;
+            font-size: 13px;
+            color: #6c757d;
+            line-height: 1.5;
+        }
+
+        .form-control {
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 12px 16px;
+            font-size: 13px;
+            margin-bottom: 16px;
+        }
+
+        .form-control:focus {
+            border-color: var(--santillana-red);
+            box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.1);
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 0 20px;
+        }
+
+        .footer h6 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 18px;
+            margin-right: 16px;
+            transition: opacity 0.3s ease;
+        }
+
+        .social-links a:hover {
+            opacity: 0.7;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(-50px) rotateY(-5deg); }
+            50% { transform: translateY(-70px) rotateY(5deg); }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-book {
+                width: 200px;
+                height: 280px;
+                right: 5%;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+
+
+        /* Cards Section */
+        .cards-section {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .subject-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .subject-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .subject-card:hover::before {
+            left: 100%;
+        }
+
+        .subject-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .card-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .subject-card:hover .card-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .card-description {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Minimal Cards Styles */
+        .minimal-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem 1rem;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            height: 140px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .minimal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--bolivia-red), var(--bolivia-yellow), var(--bolivia-green));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .minimal-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .minimal-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .minimal-card.selected {
+            border-color: var(--primary-color);
+            background: linear-gradient(135deg, rgba(231, 76, 60, 0.05), rgba(231, 76, 60, 0.02));
+            transform: translateY(-5px);
+        }
+
+        .minimal-card .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .minimal-card:hover .card-icon {
+            transform: scale(1.15);
+        }
+
+        .minimal-card .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin: 0;
+            transition: all 0.3s ease;
+        }
+
+        /* Subject specific colors */
+        .comunicacion-card .card-icon { color: var(--bolivia-red); }
+        .matematica-card .card-icon { color: var(--secondary-color); }
+        .ciencias-card .card-icon { color: var(--bolivia-green); }
+        .sociales-card .card-icon { color: #9b59b6; }
+        .fisica-card .card-icon { color: #3498db; }
+        .quimica-card .card-icon { color: var(--accent-color); }
+        .biologia-card .card-icon { color: #2ecc71; }
+        .geografia-card .card-icon { color: #e67e22; }
+
+        .comunicacion-card:hover { border-color: var(--bolivia-red); }
+        .matematica-card:hover { border-color: var(--secondary-color); }
+        .ciencias-card:hover { border-color: var(--bolivia-green); }
+        .sociales-card:hover { border-color: #9b59b6; }
+        .fisica-card:hover { border-color: #3498db; }
+        .quimica-card:hover { border-color: var(--accent-color); }
+        .biologia-card:hover { border-color: #2ecc71; }
+
+        /* About Section */
+        .about-section {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .feature-box {
+            text-align: center;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--bolivia-red));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-box:hover .feature-icon {
+            transform: rotate(360deg) scale(1.1);
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#inicio">
+                <i class="fas fa-book-open"></i> Santillana
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#productos">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section">
+        <div class="hero-blur-bg"></div>
+        <div class="hero-book"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 hero-content">
+                    <h1 class="hero-title">Educación que transforma</h1>
+                    <p class="hero-subtitle">Contenido educativo de calidad para Bolivia</p>
+                    <a href="#productos" class="btn btn-minimal">
+                        <i class="fas fa-arrow-right me-2"></i>Explorar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats-grid section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-6">
+                    <div class="stat-item animate-on-scroll">
+                        <span class="stat-number">60+</span>
+                        <div class="stat-label">Años</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item animate-on-scroll">
+                        <span class="stat-number">500+</span>
+                        <div class="stat-label">Títulos</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item animate-on-scroll">
+                        <span class="stat-number">1M+</span>
+                        <div class="stat-label">Estudiantes</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item animate-on-scroll">
+                        <span class="stat-number">200+</span>
+                        <div class="stat-label">Colegios</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subjects Section -->
+    <section class="cards-section" id="materias">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="section-title fade-in-up">Elige tu Materia</h2>
+                </div>
+            </div>
+            
+            <div class="row g-3 justify-content-center">
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="minimal-card fade-in-up comunicacion-card" data-subject="comunicacion">
+                        <div class="card-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h4 class="card-title">Comunicación</h4>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="minimal-card fade-in-up matematica-card" data-subject="matematica">
+                        <div class="card-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <h4 class="card-title">Matemática</h4>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="minimal-card fade-in-up ciencias-card" data-subject="ciencias">
+                        <div class="card-icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <h4 class="card-title">Ciencias Naturales</h4>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="minimal-card fade-in-up sociales-card" data-subject="sociales">
+                        <div class="card-icon">
+                            <i class="fas fa-globe-americas"></i>
+                        </div>
+                        <h4 class="card-title">Ciencias Sociales</h4>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="minimal-card fade-in-up fisica-card" data-subject="fisica">
+                        <div class="card-icon">
+                            <i class="fas fa-atom"></i>
+                        </div>
+                        <h4 class="card-title">Física</h4>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="minimal-card fade-in-up quimica-card" data-subject="quimica">
+                        <div class="card-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h4 class="card-title">Química</h4>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="minimal-card fade-in-up biologia-card" data-subject="biologia">
+                        <div class="card-icon">
+                            <i class="fas fa-dna"></i>
+                        </div>
+                        <h4 class="card-title">Biología</h4>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="minimal-card fade-in-up geografia-card" data-subject="geografia">
+                        <div class="card-icon">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <h4 class="card-title">Geografía</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section id="productos" class="section-padding">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Nuestros Productos</h2>
+            
+            <!-- Carousel -->
+            <div id="productCarousel" class="carousel slide carousel-minimal mb-5 animate-on-scroll" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="carousel-content" style="background: linear-gradient(45deg, #74b9ff, #0984e3);">
+                            <div class="text-center">
+                                <i class="fas fa-book carousel-icon"></i>
+                                <h3 class="carousel-title">Textos Escolares</h3>
+                                <p class="carousel-desc">Material adaptado al currículo boliviano</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="carousel-content" style="background: linear-gradient(45deg, #00b894, #00cec9);">
+                            <div class="text-center">
+                                <i class="fas fa-laptop carousel-icon"></i>
+                                <h3 class="carousel-title">Plataforma Digital</h3>
+                                <p class="carousel-desc">Recursos interactivos y multimedia</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="carousel-content" style="background: linear-gradient(45deg, #fd79a8, #fdcb6e);">
+                            <div class="text-center">
+                                <i class="fas fa-chalkboard-teacher carousel-icon"></i>
+                                <h3 class="carousel-title">Capacitación</h3>
+                                <p class="carousel-desc">Formación continua para docentes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+
+            <!-- Subject Cards -->
+            <div class="row g-3">
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="subject-card animate-on-scroll" data-subject="matematicas">
+                        <i class="fas fa-calculator"></i>
+                        <h6>Matemáticas</h6>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="subject-card animate-on-scroll" data-subject="ciencias">
+                        <i class="fas fa-flask"></i>
+                        <h6>Ciencias</h6>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="subject-card animate-on-scroll" data-subject="lenguaje">
+                        <i class="fas fa-pen"></i>
+                        <h6>Lenguaje</h6>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="subject-card animate-on-scroll" data-subject="historia">
+                        <i class="fas fa-landmark"></i>
+                        <h6>Historia</h6>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="subject-card animate-on-scroll" data-subject="geografia">
+                        <i class="fas fa-globe"></i>
+                        <h6>Geografía</h6>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="subject-card animate-on-scroll" data-subject="fisica">
+                        <i class="fas fa-atom"></i>
+                        <h6>Física</h6>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="subject-card animate-on-scroll" data-subject="quimica">
+                        <i class="fas fa-vial"></i>
+                        <h6>Química</h6>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="subject-card animate-on-scroll" data-subject="filosofia">
+                        <i class="fas fa-brain"></i>
+                        <h6>Filosofía</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="nosotros" class="section-padding" style="background: var(--light-gray);">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 animate-on-scroll">
+                    <h2 class="section-title text-start">Sobre Nosotros</h2>
+                    <p class="mb-4">Editorial líder en contenidos educativos desde 1960</p>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-award text-warning me-3" style="font-size: 1.5rem;"></i>
+                                <div>
+                                    <h6 class="mb-0">Calidad</h6>
+                                    <small class="text-muted">Contenido certificado</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-map-marker-alt text-info me-3" style="font-size: 1.5rem;"></i>
+                                <div>
+                                    <h6 class="mb-0">Cobertura</h6>
+                                    <small class="text-muted">Todo el país</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 animate-on-scroll">
+                    <div class="text-center">
+                        <div style="background: linear-gradient(45deg, #ff7675, #fd79a8); height: 300px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-users" style="font-size: 6rem; color: white; opacity: 0.8;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog Section -->
+    <section class="catalog-section" id="catalogo-especial">
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="section-title fade-in-up">30 Años de Excelencia Educativa</h2>
+                    <p class="section-subtitle fade-in-up">Comprometidos con la educación boliviana, transformando vidas a través del conocimiento</p>
+                </div>
+            </div>
+            
+            <div class="row g-4 mt-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-box fade-in-up">
+                        <div class="feature-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h4>Calidad Reconocida</h4>
+                        <p>Contenidos avalados por expertos en educación con estándares internacionales adaptados a Bolivia.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-box fade-in-up">
+                        <div class="feature-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h4>Innovación Digital</h4>
+                        <p>Plataformas interactivas que combinan lo mejor de la educación tradicional y digital.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-box fade-in-up">
+                        <div class="feature-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4>Identidad Boliviana</h4>
+                        <p>Contenidos que celebran y fortalecen la rica diversidad cultural de nuestro país.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-box fade-in-up">
+                        <div class="feature-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h4>Formación Integral</h4>
+                        <p>Desarrollo de competencias para la vida y ciudadanía responsable en el siglo XXI.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section-padding">
+        <div class="container">
+            <!-- Service Icons -->
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center animate-on-scroll">
+                        <i class="fas fa-shipping-fast card-icon"></i>
+                        <h5 class="card-title">Distribución</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center animate-on-scroll">
+                        <i class="fas fa-users-cog card-icon"></i>
+                        <h5 class="card-title">Asesoría</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center animate-on-scroll">
+                        <i class="fas fa-headset card-icon"></i>
+                        <h5 class="card-title">Soporte</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center animate-on-scroll">
+                        <i class="fas fa-certificate card-icon"></i>
+                        <h5 class="card-title">Certificación</h5>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title animate-on-scroll">Servicios</h2>
+            
+            <!-- Platform Info Accordion -->
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <div class="text-center mb-4 animate-on-scroll">
+                        <h4>Agenda Santillana Digital</h4>
+                        <p class="text-muted">Conoce más de esta plataforma</p>
+                    </div>
+                    
+                    <div class="accordion" id="platformAccordion">
+                        <div class="accordion-item animate-on-scroll">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                    ¿Qué es?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#platformAccordion">
+                                <div class="accordion-body">
+                                    Agenda Santillana Digital es una plataforma en la nube y solo requieres conexión a Internet y el respaldo de tus códigos en libros o licencias.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item animate-on-scroll">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                    ¿Para qué sirve?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#platformAccordion">
+                                <div class="accordion-body">
+                                    Esta plataforma fue desarrollada para que accedas a todo el contenido digital y los recursos de tus LibroMedia y material docente. De esta manera, hemos reemplazado el uso del CD por contenidos en la nube.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item animate-on-scroll">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                    No tiene costo
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#platformAccordion">
+                                <div class="accordion-body">
+                                    El acceso a la plataforma no tiene ningún costo. Es una herramienta adicional que obtienes por la compra de tus libros y licencias Santillana.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item animate-on-scroll">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                                    ¿Dónde compro los libros?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#platformAccordion">
+                                <div class="accordion-body">
+                                    Santillana cuenta con distribuidores en todo el país en donde puedes adquirir los textos. Para mayor información, llama a nuestro servicio de atención al cliente, escribe un e-mail o llena el formulario de contacto.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item animate-on-scroll">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive">
+                                    ¿Cómo reviso mis contenidos?
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#platformAccordion">
+                                <div class="accordion-body">
+                                    Ingresa a www.santillanadigital.com. Haz clic en Acceso. Selecciona tu perfil: Estudiante o Docente. Si eres un usuario nuevo, regístrate. Accede al sistema.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item animate-on-scroll">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix">
+                                    ¿Dónde están los códigos?
+                                </button>
+                            </h2>
+                            <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#platformAccordion">
+                                <div class="accordion-body">
+                                    Los códigos se encuentran en la última página de tus libros (contraportada), también puedes recibirlos en adhesivos pegados en el producto que has adquirido.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contacto" class="contact-section section-padding">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Nuestras Oficinas</h2>
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <!-- City Tabs -->
+                    <div class="contact-tabs animate-on-scroll">
+                        <button class="contact-tab active" data-tab="lapaz">La Paz</button>
+                        <button class="contact-tab" data-tab="cochabamba">Cochabamba</button>
+                        <button class="contact-tab" data-tab="santacruz">Santa Cruz</button>
+                    </div>
+                    
+                    <div class="contact-card animate-on-scroll">
+                        <!-- La Paz Content -->
+                        <div class="contact-content active" id="lapaz">
+                            <div class="text-center mb-4">
+                                <i class="fas fa-building" style="font-size: 3rem; color: var(--santillana-red); margin-bottom: 16px;"></i>
+                                <h4>Oficina La Paz</h4>
+                                <p class="text-muted">Oficina principal y administrativa</p>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <h6><i class="fas fa-map-marker-alt me-2"></i>Dirección</h6>
+                                        <p class="text-muted">Av. Arce 2147, Edificio Santa Isabel, Piso 3</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <h6><i class="fas fa-phone me-2"></i>Teléfonos</h6>
+                                        <p class="text-muted">+591 2 2441234 | +591 2 2445678</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <h6><i class="fas fa-envelope me-2"></i>Email</h6>
+                                        <p class="text-muted">lapaz@santillana.com.bo</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <h6><i class="fas fa-clock me-2"></i>Horario de Atención</h6>
+                                        <p class="text-muted">Lunes a Viernes: 8:00 - 17:30<br>Sábados: 8:00 - 12:00</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <form>
+                                        <input type="text" class="form-control" placeholder="Nombre completo">
+                                        <input type="email" class="form-control" placeholder="Email">
+                                        <input type="tel" class="form-control" placeholder="Teléfono">
+                                        <textarea class="form-control" rows="3" placeholder="Mensaje"></textarea>
+                                        <button type="submit" class="btn btn-minimal w-100">Enviar Mensaje</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Cochabamba Content -->
+                        <div class="contact-content" id="cochabamba">
+                            <div class="text-center mb-4">
+                                <i class="fas fa-building" style="font-size: 3rem; color: var(--santillana-red); margin-bottom: 16px;"></i>
+                                <h4>Oficina Cochabamba</h4>
+                                <p class="text-muted">Centro de distribución regional</p>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <h6><i class="fas fa-map-marker-alt me-2"></i>Dirección</h6>
+                                        <p class="text-muted">Av. Heroínas 0892, entre Jordán y 25 de Mayo</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <h6><i class="fas fa-phone me-2"></i>Teléfonos</h6>
+                                        <p class="text-muted">+591 4 4251234 | +591 4 4256789</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <h6><i class="fas fa-envelope me-2"></i>Email</h6>
+                                        <p class="text-muted">cochabamba@santillana.com.bo</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <h6><i class="fas fa-clock me-2"></i>Horario de Atención</h6>
+                                        <p class="text-muted">Lunes a Viernes: 8:30 - 17:00<br>Sábados: 8:30 - 12:00</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <form>
+                                        <input type="text" class="form-control" placeholder="Nombre completo">
+                                        <input type="email" class="form-control" placeholder="Email">
+                                        <input type="tel" class="form-control" placeholder="Teléfono">
+                                        <textarea class="form-control" rows="3" placeholder="Mensaje"></textarea>
+                                        <button type="submit" class="btn btn-minimal w-100">Enviar Mensaje</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Santa Cruz Content -->
+                        <div class="contact-content" id="santacruz">
+                            <div class="text-center mb-4">
+                                <i class="fas fa-building" style="font-size: 3rem; color: var(--santillana-red); margin-bottom: 16px;"></i>
+                                <h4>Oficina Santa Cruz</h4>
+                                <p class="text-muted">Sucursal oriente y ventas regionales</p>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <h6><i class="fas fa-map-marker-alt me-2"></i>Dirección</h6>
+                                        <p class="text-muted">Av. San Martín 1456, 2do Anillo</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <h6><i class="fas fa-phone me-2"></i>Teléfonos</h6>
+                                        <p class="text-muted">+591 3 3341234 | +591 3 3345678</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <h6><i class="fas fa-envelope me-2"></i>Email</h6>
+                                        <p class="text-muted">santacruz@santillana.com.bo</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <h6><i class="fas fa-clock me-2"></i>Horario de Atención</h6>
+                                        <p class="text-muted">Lunes a Viernes: 8:00 - 17:00<br>Sábados: 8:00 - 12:30</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <form>
+                                        <input type="text" class="form-control" placeholder="Nombre completo">
+                                        <input type="email" class="form-control" placeholder="Email">
+                                        <input type="tel" class="form-control" placeholder="Teléfono">
+                                        <textarea class="form-control" rows="3" placeholder="Mensaje"></textarea>
+                                        <button type="submit" class="btn btn-minimal w-100">Enviar Mensaje</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h6><i class="fas fa-book-open me-2"></i>Santillana Bolivia</h6>
+                    <p class="text-muted mb-3">Transformando la educación boliviana desde 1960 con contenido de calidad y innovación pedagógica.</p>
+                    <div class="social-links">
+                        <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h6>Enlaces Rápidos</h6>
+                    <ul class="footer-links">
+                        <li><a href="#productos">Productos</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#contacto">Oficinas</a></li>
+                        <li><a href="https://santillanadigital.com" target="_blank">Plataforma Digital</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h6>Información</h6>
+                    <ul class="footer-links">
+                        <li><a href="#">Política de Privacidad</a></li>
+                        <li><a href="#">Términos de Uso</a></li>
+                        <li><a href="#">Distribuidores</a></li>
+                        <li><a href="#">Soporte Técnico</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h6>Contacto General</h6>
+                    <p class="text-muted mb-1"><i class="fas fa-phone me-2"></i>+591 2 244-1234</p>
+                    <p class="text-muted mb-1"><i class="fas fa-envelope me-2"></i>info@santillana.com.bo</p>
+                    <p class="text-muted mb-0"><i class="fas fa-clock me-2"></i>Lun-Vie 8:00-17:30</p>
+                </div>
+            </div>
+            <hr class="my-4" style="border-color: #495057;">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0 text-muted">&copy; 2025 Santillana Bolivia. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0 text-muted">Parte del Grupo Santillana Internacional</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Scroll animations
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                if (elementTop < window.innerHeight - 50) {
+                    element.classList.add('animated');
+                }
+            });
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent.replace(/\D/g, ''));
+                const suffix = counter.textContent.replace(/\d/g, '');
+                let current = 0;
+                const increment = target / 30;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    counter.textContent = Math.floor(current) + suffix;
+                }, 50);
+            });
+        }
+
+        // Subject cards interaction
+        document.querySelectorAll('.subject-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Remove active class from all cards
+                document.querySelectorAll('.subject-card').forEach(c => c.classList.remove('active'));
+                // Add active class to clicked card
+                this.classList.add('active');
+            });
+        });
+
+        // Contact tabs functionality (updated for cities)
+        document.querySelectorAll('.contact-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                const targetTab = this.dataset.tab;
+                
+                // Remove active class from all tabs and contents
+                document.querySelectorAll('.contact-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.contact-content').forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding content
+                this.classList.add('active');
+                document.getElementById(targetTab).classList.add('active');
+            });
+        });
+
+        // Form handling for all forms
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Mensaje enviado correctamente');
+                this.reset();
+            });
+        });
+
+        // Event listeners
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', () => {
+            animateOnScroll();
+            setTimeout(animateCounters, 500);
+        });
+
+        // Auto carousel
+        const carousel = new bootstrap.Carousel(document.querySelector('#productCarousel'), {
+            interval: 4000
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with fade-in-up class
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 2px 25px rgba(0,0,0,0.15)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // Card hover effects
+        document.querySelectorAll('.subject-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-15px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Auto-start carousel after page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = new bootstrap.Carousel(document.querySelector('#testimonialCarousel'), {
+                interval: 5000,
+                wrap: true
+            });
+        });
+
+        // Add interactive click effects to buttons
+        document.querySelectorAll('.btn-custom').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                // Create ripple effect
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(255,255,255,0.6)';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'ripple 0.6s linear';
+                ripple.style.pointerEvents = 'none';
+                
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Add CSS for ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.floating');
+            if (parallax) {
+                const speed = scrolled * 0.5;
+                parallax.style.transform = `translateY(${speed}px)`;
+            }
+        });
+
+        // Dynamic greeting based on time
+        function updateGreeting() {
+            const hour = new Date().getHours();
+            const greetingElement = document.querySelector('.hero-subtitle');
+            if (greetingElement) {
+                let greeting = "Descubre nuestra serie Bicentenario";
+                if (hour < 12) {
+                    greeting = "Buenos días. " + greeting;
+                } else if (hour < 18) {
+                    greeting = "Buenas tardes. " + greeting;
+                } else {
+                    greeting = "Buenas noches. " + greeting;
+                }
+                // Only update if it's the original text
+                if (greetingElement.textContent.includes("Descubre nuestra serie Bicentenario")) {
+                    greetingElement.textContent = greeting + ": contenidos innovadores diseñados para formar ciudadanos críticos y preparados para el futuro.";
+                }
+            }
+        }
+
+        // Initialize greeting
+        updateGreeting();
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Video player functionality
+        document.getElementById('playVideoBtn').addEventListener('click', function() {
+            const thumbnail = document.querySelector('.video-thumbnail');
+            const iframe = document.getElementById('videoFrame');
+            
+            // Replace with actual YouTube video ID
+            iframe.src = 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1';
+            
+            thumbnail.style.display = 'none';
+            iframe.style.display = 'block';
+            iframe.style.height = '300px';
+        });
+
+        // Catalog interactions
+        document.querySelectorAll('.catalog-small-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const title = this.querySelector('h4').textContent;
+                
+                // Create notification
+                const notification = document.createElement('div');
+                notification.className = 'alert alert-dark alert-dismissible fade show position-fixed';
+                notification.style.top = '100px';
+                notification.style.right = '20px';
+                notification.style.zIndex = '9999';
+                notification.style.minWidth = '300px';
+                notification.style.background = 'rgba(0,0,0,0.9)';
+                notification.style.color = 'white';
+                notification.style.border = '1px solid rgba(231,76,60,0.3)';
+                notification.style.borderRadius = '12px';
+                notification.innerHTML = `
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-book me-2 text-danger"></i>
+                        <div>
+                            <strong>Catálogo ${title}</strong>
+                            <br><small>Descarga disponible próximamente</small>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert"></button>
+                `;
+                
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.remove();
+                    }
+                }, 4000);
+            });
+        });
+
+        // Main catalog button
+        document.querySelector('.catalog-main-btn').addEventListener('click', function() {
+            // Simulate download
+            const btn = this;
+            const originalHTML = btn.innerHTML;
+            
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Preparando...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-check me-2"></i>¡Descargado!';
+                btn.style.background = 'linear-gradient(135deg, #27ae60, #2ecc71)';
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                    btn.disabled = false;
+                    btn.style.background = 'linear-gradient(135deg, var(--primary-color), var(--bolivia-red))';
+                }, 2000);
+            }, 2000);
+        });
+
+        // Add CSS animation for pulse effect
+        const pulseStyle = document.createElement('style');
+        pulseStyle.textContent = `
+            @keyframes pulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.05); }
+                100% { transform: scale(1); }
+            }
+        `;
+        document.head.appendChild(pulseStyle);
+
+        // Contact options switching
+        document.querySelectorAll('.contact-option').forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove active class from all options
+                document.querySelectorAll('.contact-option').forEach(opt => opt.classList.remove('active'));
+                document.querySelectorAll('.contact-info').forEach(info => info.classList.remove('active'));
+                
+                // Add active class to clicked option
+                this.classList.add('active');
+                
+                // Show corresponding content
+                const contactType = this.getAttribute('data-contact');
+                document.getElementById(`${contactType}-info`).classList.add('active');
+            });
+        });
+
+        // Interactive minimal cards
+        document.querySelectorAll('.minimal-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Remove selected class from all cards
+                document.querySelectorAll('.minimal-card').forEach(c => c.classList.remove('selected'));
+                
+                // Add selected class to clicked card
+                this.classList.add('selected');
+                
+                // Get subject name
+                const subject = this.getAttribute('data-subject');
+                const title = this.querySelector('.card-title').textContent;
+                
+                // Create selection feedback
+                const notification = document.createElement('div');
+                notification.className = 'alert alert-info alert-dismissible fade show position-fixed';
+                notification.style.top = '100px';
+                notification.style.right = '20px';
+                notification.style.zIndex = '9999';
+                notification.style.minWidth = '280px';
+                notification.style.borderRadius = '12px';
+                notification.innerHTML = `
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-check-circle me-2 text-success"></i>
+                        <div>
+                            <strong>${title}</strong> seleccionada
+                            <br><small>Explora el contenido disponible</small>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                `;
+                
+                document.body.appendChild(notification);
+                
+                // Auto-remove after 3 seconds
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.remove();
+                    }
+                }, 3000);
+                
+                // Vibration effect (if supported)
+                if (navigator.vibrate) {
+                    navigator.vibrate(50);
+                }
+            });
+
+            // Add magnetic effect
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.03)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                if (!this.classList.contains('selected')) {
+                    this.style.transform = 'translateY(0) scale(1)';
+                }
+            });
+        });
+
+        // Easter egg: Konami code for special Bolivia animation
+        let konamiCode = [];
+        const expectedCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
+        
+        document.addEventListener('keydown', (e) => {
+            konamiCode.push(e.code);
+            if (konamiCode.length > expectedCode.length) {
+                konamiCode.shift();
+            }
+            
+            if (JSON.stringify(konamiCode) === JSON.stringify(expectedCode)) {
+                // Special Bolivia celebration
+                createBoliviaAnimation();
+                konamiCode = [];
+            }
+        });
+
+        function createBoliviaAnimation() {
+            const colors = ['var(--bolivia-red)', 'var(--bolivia-yellow)', 'var(--bolivia-green)'];
+            
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.style.position = 'fixed';
+                    confetti.style.top = '-10px';
+                    confetti.style.left = Math.random() * window.innerWidth + 'px';
+                    confetti.style.width = '10px';
+                    confetti.style.height = '10px';
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.pointerEvents = 'none';
+                    confetti.style.zIndex = '9999';
+                    confetti.style.borderRadius = '50%';
+                    confetti.style.animation = 'fall 3s linear forwards';
+                    
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => confetti.remove(), 3000);
+                }, i * 100);
+            }
+        }
+
+        // Add fall animation for confetti
+        const fallStyle = document.createElement('style');
+        fallStyle.textContent = `
+            @keyframes fall {
+                to {
+                    transform: translateY(${window.innerHeight + 50}px) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(fallStyle);
+    </script>
+</body>
+</html>
